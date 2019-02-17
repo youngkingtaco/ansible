@@ -1,0 +1,6 @@
+[webservers]
+192.168.2.107
+[loadbalancer]
+
+[masterdns]
+192.168.1.208
