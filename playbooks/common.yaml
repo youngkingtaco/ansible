@@ -7,7 +7,7 @@
   tasks:
   - name: install all initial packages
     yum:
-      name: {{item}}
+      name: "{{item}}"
       state: latest
       with_items:
       - man
@@ -28,15 +28,15 @@
       dest: /etc/ntp.conf
     notify: restart ntpd
 
- - name: start ntp
-   service:
-      name: ntpd
-      state: started
-    handlers:
+ -   name: start ntp
+      service:
+        name: ntpd
+        state: started
+     handlers:
       - name: restart ntpd
-        service:
-          name: ntpd
-          state: restarted
+          service:
+           name: ntpd
+           state: restarted
 
       tasks:
         name: manage resolv.conf
@@ -44,8 +44,7 @@
            src: /ansible/templates/resolv.conf.j2
            dest: /etc/resolv.conf
 
-        name: stop Network Manager
-        service:
+        name: remove Network Manager
+        yum:
           name: NetworkManager
-          status: stopped
-          enabled: no
+          state: absent
