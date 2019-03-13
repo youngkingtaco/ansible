@@ -1,0 +1,22 @@
+$TTL    86400
+@       IN      SOA     prdx-nsmaster13.ziyotek3.local. root.prdx-nsmaster13.ziyotek3.local. (
+                        20190903      ; Serial
+                        1h              ; Refresh
+                        1h              ; Retry
+                        2h              ; Expire
+                        86400 )         ; Negative Cache TTL
+
+; name servers NS records
+            IN      NS
+            IN      NS
+            IN      NS
+
+
+; name servers PTR records
+132     IN      PTR
+133     IN      PTR
+134     IN      PTR
+
+; servers
+139     IN      PTR
+146     IN      PTR     
